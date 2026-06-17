@@ -45,7 +45,7 @@ export function App({ mode }: { mode: 'light' | 'dark' }) {
 | `@threadwick/core/tokens` | `tokens.light` / `tokens.dark` (OKLCH), `space`, `size`, `radii`, `sizing`, `fonts`, `shadows`; palette helpers `oklch()`, `L()` |
 | `@threadwick/core/theme` | `lightTheme`, `darkTheme` (AntD `ThemeConfig`) |
 | `@threadwick/core/tokens.css` | `:root` (light) + `[data-theme="dark"]` custom properties + a11y rules |
-| `@threadwick/core/brand` | `Wordmark` |
+| `@threadwick/core/brand` | `Wordmark`; `Logo` badge + `ThreadwickLogo` / `StudioLogo` / `MarketplaceLogo`; `logoSVG()` (static SVG), `fromAwesome()` |
 | `@threadwick/core/components` | `Stack` (8-px spacing guardrail) |
 
 Sibling packages: **`@threadwick/types`** (Pattern model + schema), **`@threadwick/org`** (typed canon), **`@threadwick/config`** (tsconfig/eslint/prettier).
