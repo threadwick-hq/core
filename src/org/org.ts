@@ -37,7 +37,7 @@ export const values = confirmed<Value[]>([
   {
     name: 'Craft-first',
     description:
-      'We speak the craft (stitches, symbols, US/UK terms) and build tools the way people actually crochet (e.g. charts worked center-out).',
+      'We speak the craft (stitches, symbols, US/UK terms) and build tools shaped to how fiber artists actually work — not generic software bent to fit.',
   },
   { name: 'Warm & calm', description: 'Cozy and paper-like, never corporate, loud, or gamified.' },
   {

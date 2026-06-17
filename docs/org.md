@@ -25,8 +25,8 @@ e.g. the marketing site's meta description and hero pull from `org.mission` / `o
 "A home for fiber artists." (Used in the wordmark + marketing.)
 
 ## Values `[CONFIRMED]`
-1. **Craft-first** — we speak the craft (stitches, symbols, US/UK terms) and build tools the way people
-   actually crochet (e.g. charts worked center-out).
+1. **Craft-first** — we speak the craft (stitches, symbols, US/UK terms) and build tools shaped to how
+   fiber artists actually work, not generic software bent to fit.
 2. **Warm & calm** — cozy and paper-like, never corporate, loud, or gamified.
 3. **Yours, and local-first** — your work lives in your browser; free, no account, export any time, no
    lock-in.
