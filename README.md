@@ -1,9 +1,10 @@
 # @threadwick/core
 
-Threadwick's single source of truth for shared design and code: **design tokens** (OKLCH, light +
-dark), the **Ant Design theme**, crochet **domain primitives**, the shared **pattern types**,
-**brand**, and **org knowledge**. Both Threadwick apps (`home`, `studio`) import from here so they
-read as one product — instead of hand-syncing a theme three times.
+Threadwick's **design-system foundation**: **design tokens** (OKLCH, light + dark), the **Ant Design
+theme**, the **brand** wordmark, and shared UI primitives. Both Threadwick apps (`home`, `studio`)
+import from here so they read as one product — instead of hand-syncing a theme three times. The
+Pattern model, org canon, and shared config live in sibling packages (`@threadwick/types`,
+`@threadwick/org`, `@threadwick/config`).
 
 > Built by AI agents — see [AGENTS.md](AGENTS.md) (read first) and [llms.txt](llms.txt).
 
@@ -40,14 +41,14 @@ export function App({ mode }: { mode: 'light' | 'dark' }) {
 
 | Subpath | Contents |
 |---|---|
-| `@threadwick/core` | `tokens`, theme, types (re-exports; not the stylesheet) |
+| `@threadwick/core` | `tokens`, theme (re-exports; not the stylesheet) |
 | `@threadwick/core/tokens` | `tokens.light` / `tokens.dark` (OKLCH), `space`, `size`, `radii`, `sizing`, `fonts`, `shadows`; palette helpers `oklch()`, `L()` |
 | `@threadwick/core/theme` | `lightTheme`, `darkTheme` (AntD `ThemeConfig`) |
 | `@threadwick/core/tokens.css` | `:root` (light) + `[data-theme="dark"]` custom properties + a11y rules |
-| `@threadwick/core/types` | `Pattern`, `Component`, artifacts, `Material`, `Tutorial`, `Stitch`, `Note`, `Variation`, `Project` |
-| `@threadwick/core/domain` | `STITCHES`, `stitchName`, `StitchSymbol`, `StitchLegend`, `YarnSwatch` |
 | `@threadwick/core/brand` | `Wordmark` |
-| `@threadwick/core/org` | `mission`, `vision`, `tagline`, `values`, `voice`, `audience`, `products`, `glossary`, `standards`, `brand`, `legal` |
+| `@threadwick/core/components` | `Stack` (8-px spacing guardrail) |
+
+Sibling packages: **`@threadwick/types`** (Pattern model + schema), **`@threadwick/org`** (typed canon), **`@threadwick/config`** (tsconfig/eslint/prettier).
 
 ## Tokens
 
@@ -76,4 +77,4 @@ CSS variables use the `--tw-*` prefix, e.g. `var(--tw-primary)`, `var(--tw-bg-la
 
 AGPL-3.0-or-later © Threadwick — see [LICENSE](LICENSE). Importing `@threadwick/core` carries its
 copyleft. Brand name + marks © Threadwick; trademark, legal entity, and a formal privacy policy/ToS
-are still TBD (see [docs/org.md](docs/org.md) → Legal).
+are still TBD (see `@threadwick/org` → legal).

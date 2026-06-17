@@ -1,15 +1,20 @@
 # AGENTS.md — read this first
 
-`@threadwick/core` is Threadwick's **single source of truth**: design tokens (OKLCH, light +
-dark), the Ant Design theme, crochet **domain primitives**, shared **types**, **brand**, and
-**org knowledge**. Threadwick is built by AI agents, so this repo is optimised for machine
-consumption and **machine-enforced correctness** — "wrong" should fail to compile or fail a check,
-not rely on you reading prose.
+`@threadwick/core` is Threadwick's **design-system foundation**: design tokens (OKLCH, light +
+dark), the Ant Design theme, the **brand** wordmark, and shared UI primitives. Threadwick is built
+by AI agents, so this repo is optimised for machine consumption and **machine-enforced correctness**
+— "wrong" should fail to compile or fail a check, not rely on you reading prose.
+
+> **Sibling packages** (split out so the foundation stays crochet-agnostic): **`@threadwick/types`**
+> (the Pattern content model), **`@threadwick/org`** (the org canon), **`@threadwick/config`**
+> (tsconfig/eslint/prettier). The crochet stitch renderers are app-local for now — a future
+> **`@threadwick/domain`** when a second surface needs them.
 
 ## What this is (and is not)
-- **Is:** tokens-first design system + typed org canon + domain IP (stitch symbols, pattern model).
-- **Is not:** a Storybook product, a component zoo, or a release pipeline. Components are extracted
-  from the apps **on demand**. Right-size everything.
+- **Is:** the tokens-first design-system foundation — tokens, theme, brand, and shared primitives
+  that every surface installs.
+- **Is not:** a Storybook product, a component zoo, the pattern model, or the org canon (those are
+  sibling packages). Components are extracted from the apps **on demand**. Right-size everything.
 
 ## Where things live
 | Path | What | Edit? |
@@ -22,10 +27,7 @@ not rely on you reading prose.
 | `scripts/check-contrast.ts` | WCAG AA gate (OKLCH→sRGB) | ✅ |
 | `scripts/validate.ts` | conformance checker (off-grid / non-token / aria) | ✅ |
 | `src/theme/antd.ts` | `lightTheme` + `darkTheme` (AntD `ThemeConfig`) | ✅ |
-| `src/types/pattern.ts` (+ `pattern.schema.json`) | the Pattern content model + JSON Schema | ✅ |
-| `src/domain/` | stitch table, `StitchSymbol`, `StitchLegend`, `YarnSwatch` | ✅ |
 | `src/brand/Wordmark.tsx` · `assets/` | logo mark + wordmark + svg assets | ✅ |
-| `src/org/org.ts` · `docs/org.md` | the org canon (imported, never hand-typed into apps) | ✅ |
 
 ## Invariants (do not break)
 1. **One source, generate the rest.** Change colour/space/type ONLY in `tokens.json`, then run
@@ -39,8 +41,8 @@ not rely on you reading prose.
    non-token-colour / off-grid px / missing-aria / AA failures. Both run in `npm run check`.
 5. **Accessibility is WCAG 2.1 AA, baked in.** Never colour-only (keep stitch symbols). `tokens.css`
    ships the `:focus-visible` ring + a `prefers-reduced-motion` guard; consumers inherit them.
-6. **Controlled vocabulary.** Use the glossary in `docs/org.md` / `src/org/org.ts` — `Component`,
-   never "motif/piece". One canonical name per concept.
+6. **Controlled vocabulary.** Use the glossary in **`@threadwick/org`** — `Component`, never
+   "motif/piece". One canonical name per concept.
 
 ## How to change a token
 Edit `src/tokens/tokens.json` (the OKLCH `$extensions["com.threadwick"].oklch` triple is
@@ -49,11 +51,10 @@ authoritative; keep `$value`/`.dark.value` hex in step). Then:
 npm run build:tokens && npm run check:contrast && npm run typecheck
 ```
 
-## How to add a shared/domain component
-Build it token-only (CSS vars / token exports), export it from the folder barrel, and meet the
+## How to add a shared component
+Build it token-only (CSS vars / token exports), export it from `src/components`, and meet the
 **a11y gate**: keyboard-operable · visibly focusable · labelled · AA-contrast · never colour-only ·
-reduced-motion-safe · screen-reader-checked. The chart case is special — an SVG needs `role="img"`
-+ `<title>`/`<desc>` **and** a text equivalent (the round-by-round written instructions).
+reduced-motion-safe · screen-reader-checked.
 
 ## Commands
 - `npm run build:tokens` — regenerate token artifacts (auto-runs as `prebuild`)
@@ -70,4 +71,4 @@ import '@threadwick/core/tokens.css';
 ```
 Apps **import, never redefine** — delete local `tokens.*` / `theme.*` and re-export from core.
 
-See `llms.txt` (machine manifest), `docs/org.md` (org canon), `docs/principles.md` (the "why").
+See `llms.txt` (machine manifest), `docs/principles.md` (the "why"), and `@threadwick/org` (org canon).

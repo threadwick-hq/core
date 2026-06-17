@@ -22,4 +22,4 @@ labelled · AA-contrast · never colour-only · reduced-motion-safe · screen-re
 
 **Voice:** warm, encouraging, plain — a knowledgeable friend at a craft circle. Short sentences,
 sentence case, craft-native vocabulary (US/UK). No hype, no jargon, no dark patterns. (See
-[docs/org.md](org.md).)
+`@threadwick/org`.)

@@ -1,6 +1,7 @@
-// Root barrel — re-exports tokens, theme, and types (NOT the stylesheet).
+// Root barrel — re-exports tokens + theme (NOT the stylesheet).
 // Import the stylesheet separately via '@threadwick/core/tokens.css'.
-// Domain, brand, and org are available at their own subpaths ('/domain', '/brand', '/org').
+// Brand + UI primitives are at their own subpaths ('/brand', '/components').
+// The Pattern types, org canon, and crochet domain now live in separate packages:
+// @threadwick/types, @threadwick/org, and (when a 2nd surface needs it) @threadwick/domain.
 export * from './tokens';
 export * from './theme';
-export * from './types';
